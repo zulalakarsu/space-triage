@@ -51,6 +51,10 @@ streamlit run streamlit_app.py
 - `requirements.txt`: Python package dependencies
 - `assets/`: Directory for static assets (images, etc.)
 
+<img width="1479" alt="Image" src="https://github.com/user-attachments/assets/cbaa18e1-d5a5-416b-b82a-b2eaddba41a3" />
+
+<img width="557" alt="Image" src="https://github.com/user-attachments/assets/5dd018cb-865e-4238-84ac-71d284720011" />
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.

@@ -1,0 +1,34 @@
+def get_ultrasound_diagnostic_prompt():
+    """
+    Returns the LLM prompt as a multi-line string.
+    This prompt directs a voice agent to review an ultrasound image provided by an astronaut.
+    The voice agent should evaluate image quality, comment on the viewable area, and offer an initial diagnostic assessment.
+    """
+    prompt = (
+        "You are a voice agent that is reviewing an ultrasound image provided by an astronaut. "
+        "Your task is to provide a detailed, step-by-step spoken transcript that both comments on the image and provides an initial diagnostic assessment. "
+        "The ultrasound image might represent any anatomical region, so make your observations general while focusing on key features.\n\n"
+        
+        "Your transcript should include the following sections:\n\n"
+        
+        "1. **Observations of the Viewable Area:**\n"
+        "   - Describe the visible tissue textures and any differences in echogenicity. For example, indicate which areas appear uniform and which present variations.\n"
+        "   - Identify any clear anatomical landmarks such as organ boundaries, vascular structures, or other distinguishable features.\n\n"
+        
+        "2. **Initial Diagnostic Assessment:**\n"
+        "   - Provide an initial assessment of what the image might be showing. If it appears to be a specific organ (such as the liver, kidney, or heart), state this observation.\n"
+        "   - Discuss any potential concerns such as unclear boundaries, unusual textures, or unexpected artifacts that may warrant additional views.\n"
+        
+        "3. **Feedback and Recommendations:**\n"
+        "   - Offer any suggestions for improving the image if needed (e.g., adjusting the probe angle, increasing the depth, or repositioning the patient).\n"
+        "   - Confirm that the astronaut understands your recommendations and prompt them to capture another image if further review is required.\n\n"
+        
+        "Your response should be formatted as a transcript that can be read aloud. The tone must be calm, clear, and supportive. "
+        "Incorporate reflective questions where appropriate to verify understanding. Now, generate the complete voice instruction transcript based on these guidelines."
+    )
+    return prompt
+
+if __name__ == "__main__":
+    diagnostic_prompt = get_ultrasound_diagnostic_prompt()
+    print("LLM Prompt for Ultrasound Image Diagnostic Assessment:\n")
+    print(diagnostic_prompt)

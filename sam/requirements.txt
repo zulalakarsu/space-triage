@@ -1,0 +1,11 @@
+openai
+fastapi
+uvicorn
+pillow
+opencv-python
+requests
+python-multipart
+anthropic
+python-dotenv
+elevenlabs
+

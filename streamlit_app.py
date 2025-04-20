@@ -379,21 +379,15 @@ if "voice_bytes" not in st.session_state:
     st.session_state.voice_bytes = None
 
 def text_to_speech_bytes(text: str) -> bytes:
-    """Convert text to speech using ElevenLabs API"""
-    try:
-        voice = Voice(
-            voice_id="21m00Tcm4TlvDq8ikWAM",  # Default voice ID
-            settings=VoiceSettings(stability=0.5, similarity_boost=0.75)
-        )
-        chunk_gen = eleven_client.text_to_speech.convert(
-            text=text,
-            voice=voice,
-            model_id="eleven_monolingual_v1"
-        )
-        return b"".join(chunk_gen)
-    except Exception as e:
-        st.error(f"Error generating speech: {str(e)}")
-        return b""
+    """
+    Convert `text` to speech via ElevenLabs and return a single MP3 blob.
+    """
+    chunk_gen = eleven_client.text_to_speech.convert(
+        text=text,
+        voice_id="21m00Tcm4TlvDq8ikWAM",             
+        model_id="eleven_monolingual_v1"
+    )
+    return b"".join(chunk_gen)
 
 def speak(text: str):
     st.session_state.voice_bytes = text_to_speech_bytes(text)
